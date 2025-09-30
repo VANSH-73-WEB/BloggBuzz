@@ -42,6 +42,11 @@ app.get("/",async (req , res) =>{
   });
 });
 
+app.get("/home", async (req, res) => {
+  res.redirect("/");
+});
+
+
 app.use("/user" , userRoute);
 app.use("/blog", blogRoute);
 app.listen(PORT,() => console.log(`server started at PORT :${PORT} `));
