@@ -4,14 +4,19 @@
     <%- include('./partials/head') %>
     <title>Homepage</title>
   </head>
-  <body>
+  <body
+  style="background-image: url(https://i.pinimg.com/736x/14/d3/f9/14d3f95dc19aac44d7cb5fc59bd0b6a4.jpg); background-size: cover;"
+>
     <%- include('./partials/nav') %>
-    <div class="container mt-3 ">
+<div
+  class="container mt-3"
+  
+>
       <div class="row row-cols-4">
       <% blogs.forEach(blog => { %>
         <div class="col">
-      <div class="card col" style="width: 18rem">
-        <img src="<%= blog.coverimg %>" alt="" class="card-img-top" />
+      <div class="card col" style="width: 18rem; margin-bottom: 20px">
+        <img src="<%= blog.coverimg %>" alt="" class="card-img-top" width="100%" height="200px" />
         <div class="card-body">
           <h5 class="card-title"><%= blog.title %></h5>
 
