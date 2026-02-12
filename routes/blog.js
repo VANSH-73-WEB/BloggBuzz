@@ -29,13 +29,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post("/", upload.single('Cover Image'),async (req , res) => {
+router.post("/", upload.single('coverImage'),async (req , res) => {
   const {title , body} = req.body;
  const newblog = await Blog.create({
   body,
   title,
   CreatedBy:req.user._id,
-  coverimg:`/uploads/${req.file.filename}`,
+  coverimg:`/publicimg/uploads/${req.file.filename}`,
+
  });
   return res.redirect(`/blog/${newblog._id}`);
 } );

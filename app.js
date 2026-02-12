@@ -29,7 +29,8 @@ app.set("views", path.resolve("./views"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));
-app.use("/publicimg", express.static(path.resolve("./publicimg")));
+app.use("/publicimg", express.static(path.join(__dirname, "publicimg")));
+
 
 // routes
 app.get("/", async (req, res) => {
