@@ -19,7 +19,7 @@
 
 
 <div class="container mt-4">
-<h1>Comments</h1>
+<h1>Comments (<%= comments.length %>)</h1>
 <% if (locals.user) { %>
  
   <form action="/blog/comment/<%= blog._id%>" method="POST">
@@ -32,11 +32,16 @@
     </div>
   </form>
 <div class="mt-3">
-  <% comments.forEach(comment => { %>
-    </div>
-  <img src="<%= comment.CreatedBy.ProfileImageURL %>" width="60px" />
-  <span><%= comment.CreatedBy.Fullname %>:<pre><%= comment.content %></pre></span>
-</div>
+    <% comments.forEach(comment => { %>
+      <div class="mb-3 p-2 border rounded">
+        <img 
+          src="<%= comment.CreatedBy.ProfileImageURL %>" 
+          width="60px" 
+          class="rounded-circle"
+        />
+        <strong><%= comment.CreatedBy.Fullname %></strong>
+        <pre class="mb-0"><%= comment.content %></pre>
+      </div>
 <% }) %>
 </div>
 

@@ -31,6 +31,10 @@ app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));
 app.use("/publicimg", express.static(path.join(__dirname, "publicimg")));
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 // routes
 app.get("/", async (req, res) => {
