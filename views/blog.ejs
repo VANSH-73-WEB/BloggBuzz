@@ -32,18 +32,26 @@
     </div>
   </form>
 <div class="mt-3">
-    <% comments.forEach(comment => { %>
-      <div class="mb-3 p-2 border rounded">
-        <img 
-          src="<%= comment.CreatedBy.ProfileImageURL %>" 
-          width="60px" 
-          class="rounded-circle"
-        />
-        <strong><%= comment.CreatedBy.Fullname %></strong>
-        <pre class="mb-0"><%= comment.content %></pre>
-      </div>
-<% }) %>
+  <% comments.forEach(comment => { %>
+    <div class="mb-3 p-2 border rounded">
+
+      <img 
+        src="<%= comment.CreatedBy.ProfileImageURL %>" 
+        width="60px" 
+        class="rounded-circle"
+      />
+
+      <strong><%= comment.CreatedBy.Fullname %></strong>
+
+     <p class="mb-0 whitespace-pre-wrap break-words break-all">
+  <%= comment.content %>
+</p>
+
+
+    </div>
+  <% }) %>
 </div>
+
 
 
   <% } %>
